@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: sourceSansPro;
+	src: url("fonts/SourceSansPro-Regular.ttf");
+}
+
+@font-face {
+	font-family: sourceSansPro;
+	src: url("fonts/SourceSansPro-SemiBold.ttf");
+	font-weight: bold;
+}
+
+:root {
+	--background-color: #200040;
+	--title-font-color: #FFFFFF;
+	--body-font-color: #AAAAAA;
+	--body-font-highlighted-color: #FFFFFF;
+	--text-box-font-color: #444444;
+	--button-color: #0030EE;
+	--button-highlighted-color: #3044FF;
+	--button-disabled-color: #444488;
+	--button-font-color: #FFFFFF;
+	--border-color: #888888;
+	--border-highlighted-color: #FFFFFF;
+	--progress-bar-color: #22DD22;
+}
+
+body {
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	background-color: var(--background-color);
+}
+
+h1 {
+	margin: 0;
+	font: bold 36px sourceSansPro, sans-serif;
+	color: var(--title-font-color);
+}
+
+p {
+	font: 18px sourceSansPro, sans-serif;
+	color: var(--body-font-color);
+}
+
+input {
+	padding: 0;
+	padding-left: 8px;
+	padding-right: 8px;
+	font: 16px sourceSansPro, sans-serif;
+	color: #444444;
+    border: 0;
+}
+
+button {
+	width: 128px;
+	height: 28px;
+	font: 16px sourceSansPro, sans-serif;
+	padding: 0;
+    background-color: var(--button-color);
+    color: var(--button-font-color);
+    border: 0;
+	transition: background-color 0.25s;
+}
+
+button:hover {
+    background-color: var(--button-highlighted-color);
+	transition: background-color 0.25s;
+}
+
+button:disabled {
+    background-color: var(--button-disabled-color);
+	transition: background-color 0.25s;
+}
+
+.searchBar {
+	height: 32px;
+	display: flex;
+	flex-direction: row;
+}
+
+.searchBar input {
+	height: 100%;
+	flex: 50 0 auto;
+}
+
+.searchBar button {
+	height: 100%;
+	margin-left: 10px;
+	flex: 1 0 auto;
+}
+
+.buttonBar {
+	height: 32px;
+	display: flex;
+	flex-direction: row;
+	margin: 10px -5px;
+}
+
+.buttonBar button {
+	flex: 1 0 auto;
+	margin: 0 5px;
+}

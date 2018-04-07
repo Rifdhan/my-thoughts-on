@@ -1,0 +1,23 @@
+{
+  "name": "my-thoughts-on",
+  "version": "0.0.1",
+  "description": "Rate and review all the movies, TV shows, books, and other media you consume to easily browse later",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rifdhan/my-thoughts-on.git"
+  },
+  "author": "Rifdhan Nazeer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Rifdhan/my-thoughts-on/issues"
+  },
+  "homepage": "https://github.com/Rifdhan/my-thoughts-on#readme",
+  "devDependencies": {
+    "electron": "^1.8.4"
+  }
+}
