@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+#fieldsList div {
+	width: 100%;
+	margin-top: 16px;
+	margin-bottom: 22px;
+	display: flex;
+	flex-direction: row;
+}
+
+#fieldsList p {
+	width: 80px;
+	margin: auto;
+	text-align: right;
+	flex: 1 0 auto;
+}
+
+#fieldsList p.value {
+	width: 100%;
+	margin: auto;
+	margin-left: 16px;
+	flex: auto;
+	color: var(--body-font-highlighted-color);
+	text-align: left;
+}

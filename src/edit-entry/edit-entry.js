@@ -13,11 +13,11 @@ document.getElementById("saveButton").addEventListener("click", savePressed);
 // Called during initial loading
 window.onload = () => {
 	// Get ID of entry being edited (if none, we are creating a new entry)
-	entryId = localStorage.getItem("entry-id");
+	let url = new URL(window.location.href);
+	entryId = url.searchParams.get("entry-id");
 	if(entryId === undefined || entryId === null) {
 		return;
 	}
-	localStorage.removeItem("entry-id");
 	let existingData = db.getInstance().getEntryById(entryId);
 
 	// Pre-populate fields with the data
@@ -61,9 +61,9 @@ function savePressed() {
 	if(entryId) {
 		db.getInstance().updateEntryById(entryId, updatedData);
 	} else {
-		db.getInstance().createEntry(updatedData);
+		entryId = db.getInstance().createEntry(updatedData);
 	}
 
 	// Navigate to viewing the entry
-	document.location.href = "../view-entry/view-entry.html";
+	document.location.href = "../view-entry/view-entry.html?entry-id=" + entryId;
 }

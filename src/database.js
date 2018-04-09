@@ -74,6 +74,9 @@ class Database {
 
 		// Write data
 		this.updateEntryById(id, entry);
+
+		// Return new entry's ID
+		return entry.id;
 	}
 
 	// Get an entry from the database by its ID

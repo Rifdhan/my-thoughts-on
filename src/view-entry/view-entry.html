@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../common.css">
+		<link rel="stylesheet" href="view-entry.css">
+		<title>My Thoughts On...</title>
+	</head>
+	<body>
+		<h1>View Entry</h1>
+		<p>View the data for this entry</p>
+		<div id="fieldsList">
+			<div>
+				<p>Title</p>
+				<p id="titleBox" class="value"/>
+			</div>
+			<div>
+				<p>Year</p>
+				<p id="yearBox" class="value"/>
+			</div>
+			<div>
+				<p>Rating</p>
+				<p id="ratingBox" class="value"/>
+			</div>
+			<div>
+				<p>Comments</p>
+				<p id="commentsBox" class="value"/>
+			</div>
+		</div>
+		<div class="buttonBar">
+			<button id="backButton" type="button">Back</button>
+			<button id="editButton" type="button">Edit</button>
+			<button id="deleteButton" type="button">Delete</button>
+		</div>
+		<p id="versionAndCredits"></p>
+	</body>
+	<script>
+		require("./view-entry.js");
+	</script>
+</html>
