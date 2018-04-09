@@ -4,11 +4,12 @@ const electron = require("electron");
 const path = require("path");
 const fs = require("fs");
 
+const common = require("./common");
 const db = require("./database");
 
 
 // Settings file name
-const SETTINGS_FILE_NAME = "settings.json";
+const SETTINGS_FILE_NAME = "settings" + (common.devMode ? "_dev" : "") + ".json";
 
 // Default contents for settings file
 const DEFAULT_SETTINGS_FILE_CONTENTS = {
@@ -19,7 +20,7 @@ const DEFAULT_SETTINGS_FILE_CONTENTS = {
 // Get path to settings file
 function getSettingsFilePath() {
 	// Get user data path
-	let userDataPath = (electron.app || electron.remote.app).getPath('userData');
+	let userDataPath = (electron.app || electron.remote.app).getPath("userData");
 		
 	// Append file name
 	return path.join(userDataPath, SETTINGS_FILE_NAME);

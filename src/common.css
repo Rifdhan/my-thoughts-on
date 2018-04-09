@@ -45,10 +45,8 @@ p {
 	color: var(--body-font-color);
 }
 
-input {
-	padding: 0;
-	padding-left: 8px;
-	padding-right: 8px;
+input, textarea {
+	padding: 4px 8px;
 	font: 16px sourceSansPro, sans-serif;
 	color: #444444;
     border: 0;
@@ -82,7 +80,6 @@ button:disabled {
 }
 
 .searchBar input {
-	height: 100%;
 	flex: 50 0 auto;
 }
 

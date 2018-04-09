@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../common.css">
+		<link rel="stylesheet" href="edit-entry.css">
+		<title>My Thoughts On...</title>
+	</head>
+	<body>
+		<h1>Edit Entry</h1>
+		<p>Modify the data for this entry</p>
+		<div id="fieldsList">
+			<div>
+				<p>Title</p>
+				<input id="titleBox" type="text"/>
+			</div>
+			<div>
+				<p>Year</p>
+				<input id="yearBox" type="text"/>
+			</div>
+			<div>
+				<p>Rating</p>
+				<input id="ratingBox" type="text"/>
+			</div>
+			<div>
+				<p>Comments</p>
+				<textarea id="commentsBox" rows="5"></textarea>
+			</div>
+		</div>
+		<div class="buttonBar">
+			<button id="cancelButton" type="button">Cancel</button>
+			<button id="saveButton" type="button">Save</button>
+		</div>
+		<p id="versionAndCredits"></p>
+	</body>
+	<script>
+		require("./edit-entry.js");
+	</script>
+</html>

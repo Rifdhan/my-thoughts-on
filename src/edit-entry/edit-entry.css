@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+#fieldsList div {
+	width: 100%;
+	margin-top: 16px;
+	margin-bottom: 22px;
+	display: flex;
+	flex-direction: row;
+}
+
+#fieldsList p {
+	width: 80px;
+	margin: auto;
+	text-align: right;
+	flex: 1 0 auto;
+}
+
+#fieldsList input, #fieldsList textarea {
+	width: 100%;
+	margin-left: 16px;
+	flex: auto;
+}
+
+#fieldsList textarea {
+	height: 104px;
+}

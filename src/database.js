@@ -4,9 +4,11 @@ const electron = require("electron");
 const path = require("path");
 const fs = require("fs");
 
+const common = require("./common");
+
 
 // Default name for the database file
-const DEFAULT_DB_FILE_NAME = "my_thoughts_on_db.json";
+const DEFAULT_DB_FILE_NAME = "my_thoughts_on_db" + (common.devMode ? "_dev" : "") + ".json";
 
 // Default contents for a new database file
 const DEFAULT_DB_FILE_CONTENTS = {
@@ -14,60 +16,90 @@ const DEFAULT_DB_FILE_CONTENTS = {
 	data: {}
 };
 
-// Path to database file being used
-let dbFilePath;
-
-// Will store an in-memory copy of the data
-let cache = {};
-
 // Get the path to the default database file
 function getDefaultDbFilePath() {
 	// Get user data path
-	let userDataPath = (electron.app || electron.remote.app).getPath('userData');
+	let userDataPath = (electron.app || electron.remote.app).getPath("userData");
 	
 	// Append file name
-    return path.join(userDataPath, DEFAULT_DB_FILE_NAME);
+	return path.join(userDataPath, DEFAULT_DB_FILE_NAME);
 }
 
-// Load data from disk or create database file if none exists
+// Initialize a singleton database instance
+let db;
 function initialize(filePath) {
-	dbFilePath = filePath;
+	db = new Database(filePath);
+	global.db = db;
+}
 
-	// Check if file exists
-	if(!fs.existsSync(dbFilePath)) {
-		// Create if no file exists
-		fs.writeFileSync(dbFilePath, JSON.stringify(DEFAULT_DB_FILE_CONTENTS));
+// Get the singleton database instance
+function getInstance() {
+	// Get from current process or remote
+	if(db) {
+		return db;
+	} else {
+		return electron.remote.getGlobal("db");
+	}
+}
+
+// Singleton class to handle database interactions
+// Stores an in-memory copy of the database file contents
+class Database {
+	// Load data from disk or create database file if none exists
+	constructor(filePath) {
+		// Store local copy of database file path
+		this.dbFilePath = filePath;
+
+		// Check if file exists
+		if(!fs.existsSync(this.dbFilePath)) {
+			// Create if no file exists
+			fs.writeFileSync(this.dbFilePath, JSON.stringify(DEFAULT_DB_FILE_CONTENTS));
+		}
+
+		// Read file contents as in-memory cached copy
+		let data = fs.readFileSync(this.dbFilePath);
+		this.cache = JSON.parse(data);
 	}
 
-	// Read file contents into cache
-	let data = fs.readFileSync(dbFilePath);
-	cache = JSON.parse(data);
-}
+	// Create an entry in the database
+	createEntry(entry) {
+		// Determine next valid ID
+		let id = 0;
+		Object.keys(this.cache.data).forEach(key => {
+			if(parseInt(key) >= id) {
+				id++;
+			}
+		});
+		entry.id = "" + id;
 
-// Get an entry from the database by its ID
-function getById(id) {
-	// Read from cache
-	return cache.data[id];
-}
+		// Write data
+		this.updateEntryById(id, entry);
+	}
 
-// Insert or update an entry in the database
-function setById(id, entry) {
-	// Write into cache
-	cache.data[id] = entry;
+	// Get an entry from the database by its ID
+	getEntryById(id) {
+		// Read from cache
+		return this.cache.data[id];
+	}
 
-	// Write to disk
-	fs.writeFileSync(dbFilePath, JSON.stringify(cache));
-}
+	// Update an entry in the database
+	updateEntryById(id, entry) {
+		// Write into cache
+		this.cache.data[id] = entry;
 
-// Searches for matches based on entry titles
-function searchByTitle(searchPhrase) {
-	// TODO
+		// Write to disk
+		fs.writeFileSync(this.dbFilePath, JSON.stringify(this.cache));
+	}
+
+	// Searches for matches based on entry titles
+	searchByTitle(searchPhrase) {
+		// TODO
+	}
 }
 
 module.exports = {
 	getDefaultDbFilePath,
 	initialize,
-	getById,
-	setById,
-	searchByTitle
+	getInstance,
+	Database
 };

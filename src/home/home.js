@@ -30,7 +30,7 @@ function goPressed() {
 
 // Called when button to create a new entry pressed
 function addEntryPressed() {
-	// Go to the relevant page
+	// Go to page to edit a new entry
 	document.location.href = "../edit-entry/edit-entry.html";
 }
 
