@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.result {
+	margin-bottom: 16px;
+	padding: 4px 16px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--border-color);
+	transition: border-color 0.25s;
+}
+
+.result:hover {
+	border-color: var(--border-highlighted-color);
+	transition: border-color 0.25s;
+}
+
+.result div {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	display: flex;
+}
+
+.result p.key {
+	width: 80px;
+	margin: auto;
+	text-align: right;
+	flex: 1 0 auto;
+}
+
+.result p.value {
+	width: 100%;
+	margin: auto;
+	margin-left: 16px;
+	flex: auto;
+	color: var(--body-font-highlighted-color);
+}

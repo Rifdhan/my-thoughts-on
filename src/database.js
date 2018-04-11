@@ -96,7 +96,11 @@ class Database {
 
 	// Searches for matches based on entry titles
 	searchByTitle(searchPhrase) {
-		// TODO
+		// Filter entire list of data to get only matches
+		searchPhrase = searchPhrase.toLowerCase();
+		return Object.values(this.cache.data).filter(entry => {
+			return (entry.title.toLowerCase().includes(searchPhrase));
+		});
 	}
 }
 

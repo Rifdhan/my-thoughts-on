@@ -23,18 +23,26 @@ window.onload = () => {
 	document.getElementById("searchBox").focus();
 }
 
-// Called when search button pressed
+// Called when search button is pressed
 function goPressed() {
-	// TODO
+	// Get entered query
+	let query = document.getElementById("searchBox").value.trim();
+	if(query === "") {
+		window.alert("Please enter a search query!");
+		return;
+	}
+
+	// Modify the search query URL parameter
+	document.location.href = "../search-results/search-results.html?query=" + encodeURIComponent(query);
 }
 
-// Called when button to create a new entry pressed
+// Called when button to create a new entry is pressed
 function addEntryPressed() {
 	// Go to page to edit a new entry
 	document.location.href = "../edit-entry/edit-entry.html";
 }
 
-// Called when settings button pressed
+// Called when settings button is pressed
 function settingsPressed() {
 	// TODO
 }

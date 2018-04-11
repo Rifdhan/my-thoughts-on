@@ -17,7 +17,7 @@ window.onload = () => {
 	let url = new URL(window.location.href);
 	entryId = url.searchParams.get("entry-id");
 	if(entryId === undefined || entryId === null) {
-		console.error("Couldn't find any entry to populate fields with");		
+		console.error("No entry ID specified");		
 		return;
 	}
 	let existingData = db.getInstance().getEntryById(entryId);
@@ -29,13 +29,13 @@ window.onload = () => {
 	document.getElementById("commentsBox").textContent = existingData.comments ? existingData.comments : "(none)";
 }
 
-// Called when back button pressed
+// Called when back button is pressed
 function backPressed() {
 	// Go back to previous page
 	window.history.back();
 }
 
-// Called when edit button pressed
+// Called when edit button is pressed
 function editPressed() {
 	// Save entry ID to local storage
 	localStorage.setItem("entry-id", entryId);
@@ -44,7 +44,7 @@ function editPressed() {
 	document.location.href = "../edit-entry/edit-entry.html?entry-id=" + entryId;
 }
 
-// Called when delete button pressed
+// Called when delete button is pressed
 function deletePressed() {
 	// TODO show confirmation popup
 }

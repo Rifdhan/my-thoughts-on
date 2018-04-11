@@ -27,13 +27,13 @@ window.onload = () => {
 	document.getElementById("commentsBox").value = existingData.comments ? existingData.comments : "";
 }
 
-// Called when search button pressed
+// Called when search button is pressed
 function cancelPressed() {
 	// Go back to previous page
 	window.history.back();
 }
 
-// Called when button to create a new entry pressed
+// Called when button to create a new entry is pressed
 function savePressed() {
 	// Read data from all fields
 	let updatedData = {

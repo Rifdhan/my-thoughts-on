@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../common.css">
+		<link rel="stylesheet" href="search-results.css">
+		<title>My Thoughts On...</title>
+	</head>
+	<body>
+		<h1>Search Results</h1>
+		<p>Here are entries that match your search criteria</p>
+		<div class="searchBar">
+			<input id="searchBox" type="text" placeholder="Search by title..."/>
+			<button id="goButton" type="button">Go</button>
+		</div>
+		<p id="statusText"></p>
+		<div id="resultsContainer"></div>
+		<div class="buttonBar">
+			<button id="backButton" type="button">Back</button>
+		</div>
+		<p id="versionAndCredits"></p>
+	</body>
+	<script>
+		require("./search-results.js");
+	</script>
+</html>
