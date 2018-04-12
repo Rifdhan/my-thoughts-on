@@ -44,5 +44,6 @@ function addEntryPressed() {
 
 // Called when settings button is pressed
 function settingsPressed() {
-	// TODO
+	// Go to settings page
+	document.location.href = "../settings/settings.html";
 }

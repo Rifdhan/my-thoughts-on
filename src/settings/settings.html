@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../common.css">
+		<link rel="stylesheet" href="settings.css">
+		<title>My Thoughts On...</title>
+	</head>
+	<body>
+		<h1>Settings</h1>
+		<p>Modify settings to better meet your needs</p>
+		<h2>Database Location</h2>
+		<p>Specify the location and file name for the database file.
+			If you wish to move the file, you should copy it from its current location
+			to the desired location before updating the location here.</p>
+			<div class="searchBar">
+				<input id="databasePathBox" type="text" placeholder="Path to database file..."/>
+				<button id="updateButton" type="button">Update</button>
+			</div>
+		<p id="statusText"></p>
+		<div class="buttonBar">
+			<button id="backButton" type="button">Back</button>
+		</div>
+	</body>
+	<script>
+		require("./settings.js");
+	</script>
+</html>

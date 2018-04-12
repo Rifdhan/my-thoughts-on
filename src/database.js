@@ -46,15 +46,21 @@ function getInstance() {
 // Stores an in-memory copy of the database file contents
 class Database {
 	// Load data from disk or create database file if none exists
-	constructor(filePath) {
-		// Store local copy of database file path
-		this.dbFilePath = filePath;
-
+	constructor(dbFilePath) {
 		// Check if file exists
-		if(!fs.existsSync(this.dbFilePath)) {
+		if(!fs.existsSync(dbFilePath)) {
 			// Create if no file exists
-			fs.writeFileSync(this.dbFilePath, JSON.stringify(DEFAULT_DB_FILE_CONTENTS));
+			fs.writeFileSync(dbFilePath, JSON.stringify(DEFAULT_DB_FILE_CONTENTS));
 		}
+
+		// Initialize with path
+		this.updateDatabaseFilePath(dbFilePath);
+	}
+
+	// Sets the path to the database file (may be changed during runtime)
+	updateDatabaseFilePath(newDbFilePath) {
+		// Store local copy of database file path
+		this.dbFilePath = newDbFilePath;
 
 		// Read file contents as in-memory cached copy
 		let data = fs.readFileSync(this.dbFilePath);

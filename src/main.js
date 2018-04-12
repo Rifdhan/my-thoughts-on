@@ -66,7 +66,7 @@ app.on("ready", () => {
 	settings.createDefaultSettingsFileIfNotExists();
 
 	// Load data from database
-	db.initialize(settings.getDbFilePath());
+	db.initialize(settings.getDatabaseFilePath());
 
 	// Open the main window
 	createWindow();

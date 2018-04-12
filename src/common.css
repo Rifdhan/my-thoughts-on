@@ -42,6 +42,12 @@ h1 {
 	color: var(--title-font-color);
 }
 
+h2 {
+	margin: 0;
+	font: bold 22px sourceSansPro, sans-serif;
+	color: var(--title-font-color);
+}
+
 p {
 	font: 18px sourceSansPro, sans-serif;
 	color: var(--body-font-color);

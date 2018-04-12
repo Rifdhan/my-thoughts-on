@@ -48,13 +48,33 @@ function readFromSettingsFile(key) {
 	return data[key];
 }
 
+// Write the value for a given key into settings
+function writeToSettingsFile(key, value) {
+	// Read data from file
+	let settingsFilePath = getSettingsFilePath();
+	let data = JSON.parse(fs.readFileSync(settingsFilePath));
+
+	// Write new data
+	data[key] = value;
+
+	// Save updated data to disk
+	fs.writeFileSync(settingsFilePath, JSON.stringify(data));
+}
+
 // Get database file path
-function getDbFilePath() {
+function getDatabaseFilePath() {
 	// Read value from settings file
 	return readFromSettingsFile("db_file_path");
 }
 
+// Update database file path
+function updateDatabaseFilePath(newPath) {
+	// Read value from settings file
+	return writeToSettingsFile("db_file_path", newPath);
+}
+
 module.exports = {
 	createDefaultSettingsFileIfNotExists,
-	getDbFilePath
+	getDatabaseFilePath,
+	updateDatabaseFilePath
 };
