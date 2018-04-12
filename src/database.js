@@ -76,10 +76,10 @@ class Database {
 				id++;
 			}
 		});
-		entry.id = "" + id;
+		entry.id = id.toString();
 
 		// Write data
-		this.updateEntryById(id, entry);
+		this.updateEntryById(entry.id, entry);
 
 		// Return new entry's ID
 		return entry.id;

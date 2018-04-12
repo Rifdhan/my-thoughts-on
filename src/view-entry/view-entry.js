@@ -20,6 +20,7 @@ window.onload = () => {
 		console.error("No entry ID specified");		
 		return;
 	}
+	entryId = entryId.toString();
 	let existingData = db.getInstance().getEntryById(entryId);
 
 	// Pre-populate fields with the data

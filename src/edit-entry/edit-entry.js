@@ -18,6 +18,7 @@ window.onload = () => {
 	if(entryId === undefined || entryId === null) {
 		return;
 	}
+	entryId = entryId.toString();
 	let existingData = db.getInstance().getEntryById(entryId);
 
 	// Pre-populate fields with the data
@@ -64,7 +65,8 @@ function savePressed() {
 	}
 
 	// Write data to database
-	if(entryId) {
+	if(entryId !== undefined && entryId !== null) {
+		updatedData.id = entryId;
 		db.getInstance().updateEntryById(entryId, updatedData);
 	} else {
 		entryId = db.getInstance().createEntry(updatedData);
