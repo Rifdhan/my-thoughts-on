@@ -53,6 +53,11 @@ p {
 	color: var(--body-font-color);
 }
 
+a {
+	font: 18px sourceSansPro, sans-serif;
+	color: var(--body-font-highlighted-color);
+}
+
 input, textarea {
 	padding: 4px 8px;
 	font: 16px sourceSansPro, sans-serif;

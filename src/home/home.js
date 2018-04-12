@@ -2,6 +2,7 @@
 
 let packageJson = require("../../package.json");
 
+
 // Register event handlers
 document.getElementById("goButton").addEventListener("click", goPressed);
 document.getElementById("searchBox").addEventListener("keypress", (event) => {
@@ -12,6 +13,7 @@ document.getElementById("searchBox").addEventListener("keypress", (event) => {
 });
 document.getElementById("addEntryButton").addEventListener("click", addEntryPressed);
 document.getElementById("settingsButton").addEventListener("click", settingsPressed);
+document.getElementById("aboutButton").addEventListener("click", aboutPressed);
 
 // Called during initial loading
 window.onload = () => {
@@ -46,4 +48,10 @@ function addEntryPressed() {
 function settingsPressed() {
 	// Go to settings page
 	document.location.href = "../settings/settings.html";
+}
+
+// Called when about button is pressed
+function aboutPressed() {
+	// Go to about page
+	document.location.href = "../about/about.html";
 }
