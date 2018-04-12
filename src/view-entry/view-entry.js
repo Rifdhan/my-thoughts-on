@@ -23,8 +23,9 @@ window.onload = () => {
 	let existingData = db.getInstance().getEntryById(entryId);
 
 	// Pre-populate fields with the data
+	document.getElementById("typeBox").textContent = existingData.type;
 	document.getElementById("titleBox").textContent = existingData.title;
-	document.getElementById("yearBox").textContent = existingData.year;
+	document.getElementById("releaseDateBox").textContent = existingData.releaseDate;
 	document.getElementById("ratingBox").textContent = existingData.rating;
 	document.getElementById("commentsBox").textContent = existingData.comments ? existingData.comments : "(none)";
 }

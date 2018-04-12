@@ -48,8 +48,9 @@ window.onload = () => {
 function addResultEntry(result) {
 	let div = document.createElement("div");
 	div.classList = "result";
+	div.appendChild(createKeyValuePair("Type", result.type));
 	div.appendChild(createKeyValuePair("Title", result.title));
-	div.appendChild(createKeyValuePair("Year", result.year));
+	div.appendChild(createKeyValuePair("Release Date", result.releaseDate));
 	div.appendChild(createKeyValuePair("Rating", result.rating));
 	div.appendChild(createKeyValuePair("Comments", result.comments, "(none)"));
 	div.addEventListener("click", () => { resultPressed(result.index) });

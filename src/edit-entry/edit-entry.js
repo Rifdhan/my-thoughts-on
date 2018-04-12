@@ -21,8 +21,9 @@ window.onload = () => {
 	let existingData = db.getInstance().getEntryById(entryId);
 
 	// Pre-populate fields with the data
+	document.getElementById("typeBox").value = existingData.type;
 	document.getElementById("titleBox").value = existingData.title;
-	document.getElementById("yearBox").value = existingData.year;
+	document.getElementById("releaseDateBox").value = existingData.releaseDate;
 	document.getElementById("ratingBox").value = existingData.rating;
 	document.getElementById("commentsBox").value = existingData.comments ? existingData.comments : "";
 }
@@ -37,19 +38,24 @@ function cancelPressed() {
 function savePressed() {
 	// Read data from all fields
 	let updatedData = {
+		type: document.getElementById("typeBox").value.trim(),
 		title: document.getElementById("titleBox").value.trim(),
-		year: document.getElementById("yearBox").value.trim(),
+		releaseDate: document.getElementById("releaseDateBox").value.trim(),
 		rating: document.getElementById("ratingBox").value.trim(),
 		comments: document.getElementById("commentsBox").value.trim()
 	};
 
 	// Make sure all fields are validly populated
+	if(updatedData.type === "") {
+		window.alert("Please enter a type!");
+		return;
+	}
 	if(updatedData.title === "") {
 		window.alert("Please enter a title!");
 		return;
 	}
-	if(updatedData.year === "") {
-		window.alert("Please enter a year!");
+	if(updatedData.releaseDate === "") {
+		window.alert("Please enter a release date!");
 		return;
 	}
 	if(updatedData.rating === "") {

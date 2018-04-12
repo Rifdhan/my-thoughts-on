@@ -21,7 +21,7 @@
 }
 
 .result p.key {
-	width: 80px;
+	width: var(--fields-label-width);
 	margin: auto;
 	text-align: right;
 	flex: 1 0 auto;

@@ -24,6 +24,8 @@
 	--border-color: #888888;
 	--border-highlighted-color: #FFFFFF;
 	--progress-bar-color: #22DD22;
+
+	--fields-label-width: 98px;
 }
 
 body {
