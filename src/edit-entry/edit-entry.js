@@ -24,6 +24,7 @@ window.onload = () => {
 	// Pre-populate fields with the data
 	document.getElementById("typeBox").value = existingData.type;
 	document.getElementById("titleBox").value = existingData.title;
+	document.getElementById("viewedBox").value = existingData.viewed;
 	document.getElementById("releaseDateBox").value = existingData.releaseDate;
 	document.getElementById("ratingBox").value = existingData.rating;
 	document.getElementById("commentsBox").value = existingData.comments ? existingData.comments : "";
@@ -41,6 +42,7 @@ function savePressed() {
 	let updatedData = {
 		type: document.getElementById("typeBox").value.trim(),
 		title: document.getElementById("titleBox").value.trim(),
+		viewed: document.getElementById("viewedBox").value.trim(),
 		releaseDate: document.getElementById("releaseDateBox").value.trim(),
 		rating: document.getElementById("ratingBox").value.trim(),
 		comments: document.getElementById("commentsBox").value.trim()
@@ -57,6 +59,10 @@ function savePressed() {
 	}
 	if(updatedData.releaseDate === "") {
 		window.alert("Please enter a release date!");
+		return;
+	}
+	if(updatedData.viewed === "") {
+		window.alert("Please enter a viewed date!");
 		return;
 	}
 	if(updatedData.rating === "") {

@@ -26,6 +26,7 @@ window.onload = () => {
 	// Pre-populate fields with the data
 	document.getElementById("typeBox").textContent = existingData.type;
 	document.getElementById("titleBox").textContent = existingData.title;
+	document.getElementById("viewedBox").textContent = existingData.viewed;
 	document.getElementById("releaseDateBox").textContent = existingData.releaseDate;
 	document.getElementById("ratingBox").textContent = existingData.rating;
 	document.getElementById("commentsBox").textContent = existingData.comments ? existingData.comments : "(none)";
