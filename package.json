@@ -1,11 +1,14 @@
 {
   "name": "my-thoughts-on",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "Rate and review all the movies, TV shows, books, and other media you consume to easily browse later",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,11 @@
   },
   "homepage": "https://github.com/Rifdhan/my-thoughts-on#readme",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-builder": "^20.11.1"
+  },
+  "build": {
+    "appId": "my.thoughts.on.rifdhan",
+    "productName": "My Thoughts On"
   }
 }
