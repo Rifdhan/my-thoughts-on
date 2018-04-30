@@ -3,6 +3,10 @@
 const db = require("../database");
 
 
+// Maps from a month number to its full name
+const MONTH_NUMBER_TO_NAME = ["January", "February", "March", "April", "May", "June",
+	"July", "August", "September", "October", "November", "December"];
+
 // Store ID of entry being edited, if it has one
 let entryId;
 
@@ -16,6 +20,10 @@ window.onload = () => {
 	let url = new URL(window.location.href);
 	entryId = url.searchParams.get("entry-id");
 	if(entryId === undefined || entryId === null) {
+		// Creating a new entry - pre-populate date as today's date
+		let today = new Date();
+		document.getElementById("viewedBox").value = MONTH_NUMBER_TO_NAME[today.getMonth()] +
+			" " + today.getDate() + " " + today.getFullYear();
 		return;
 	}
 	entryId = entryId.toString();
