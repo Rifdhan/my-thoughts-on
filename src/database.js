@@ -18,11 +18,7 @@ const DEFAULT_DB_FILE_CONTENTS = {
 
 // Get the path to the default database file
 function getDefaultDbFilePath() {
-	// Get user data path
-	let userDataPath = (electron.app || electron.remote.app).getPath("userData");
-	
-	// Append file name
-	return path.join(userDataPath, DEFAULT_DB_FILE_NAME);
+	return path.join(common.databaseRootPath, DEFAULT_DB_FILE_NAME);
 }
 
 // Initialize a singleton database instance

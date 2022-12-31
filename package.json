@@ -1,6 +1,6 @@
 {
   "name": "my-thoughts-on",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rate and review all the movies, TV shows, books, and other media you consume to easily browse later",
   "main": "src/main.js",
   "scripts": {

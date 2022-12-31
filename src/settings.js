@@ -19,11 +19,7 @@ const DEFAULT_SETTINGS_FILE_CONTENTS = {
 
 // Get path to settings file
 function getSettingsFilePath() {
-	// Get user data path
-	let userDataPath = (electron.app || electron.remote.app).getPath("userData");
-		
-	// Append file name
-	return path.join(userDataPath, SETTINGS_FILE_NAME);
+	return path.join(common.databaseRootPath, SETTINGS_FILE_NAME);
 }
 
 // Create a settings file with default settings if none exists
